@@ -9,7 +9,12 @@ export default function Form({ getDietFromGoogle }) {
     console.log(formData.get("name"));
     console.log(formData.get("weight"));
 
-    const responseFromApi = getDietFromGoogle();
+    const data = {
+      name: formData.get("name"),
+      weight: formData.get("weight"),
+    };
+
+    const responseFromApi = getDietFromGoogle(data);
 
     setResponse(responseFromApi);
   }
