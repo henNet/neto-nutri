@@ -1,10 +1,12 @@
 "use client";
 import "./Form.css";
 
-export default function Form() {
+export default function Form({ getDietFromGoogle }) {
   function handleGetDiet(formData) {
     console.log(formData.get("name"));
     console.log(formData.get("weight"));
+
+    getDietFromGoogle();
   }
 
   return (
