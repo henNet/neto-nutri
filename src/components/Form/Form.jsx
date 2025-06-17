@@ -1,12 +1,17 @@
 "use client";
+import { useState } from "react";
 import "./Form.css";
 
 export default function Form({ getDietFromGoogle }) {
+  const [response, setResponse] = useState("");
+
   function handleGetDiet(formData) {
     console.log(formData.get("name"));
     console.log(formData.get("weight"));
 
-    getDietFromGoogle();
+    const responseFromApi = getDietFromGoogle();
+
+    setResponse(responseFromApi);
   }
 
   return (
@@ -20,7 +25,8 @@ export default function Form({ getDietFromGoogle }) {
       </div>
 
       <div className="response-container">
-        <p>Resposta</p>
+        <p>Resposta:</p>
+        <p>{response}</p>
       </div>
     </div>
   );
